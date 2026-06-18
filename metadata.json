@@ -1,0 +1,6 @@
+{
+  "name": "IPIC Africa",
+  "description": "IPIC Africa (The Africa Institute for Policy and Impact Communication) - Advancing evidence-informed policy and measurable social impact through strategic communication and innovation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

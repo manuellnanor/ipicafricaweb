@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Space Grotesk", sans-serif;
+  
+  --color-brand-green: #0d5c46;
+  --color-brand-green-hover: #084c39;
+  --color-brand-light-green: #e6f3ef;
+  --color-brand-gold: #e36e22;
+  --color-brand-gold-hover: #c95d19;
+  --color-brand-cream: #fbfbf6;
+  --color-brand-charcoal: #1c2e28;
+  --color-brand-dark: #0f1d19;
+}
+
+/* Custom scrollbar and ambient animation classes */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fbfbf6;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1cfc7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a197;
+}
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  background-color: #fbfbf6;
+}
+
+.text-stroke-sm {
+  -webkit-text-stroke: 1px currentColor;
+}
