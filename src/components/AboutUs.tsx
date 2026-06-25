@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Check, ArrowRight, Award, Zap, Globe, FileText, Users, HeartHandshake, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import teamCollaborationImage from "../assets/hero/ipic-team-collaboration.jpg";
-import financialStrategyImage from "../assets/hero/ipic-financial-strategy.jpg";
-import womanLeadershipImage from "../assets/hero/ipic-woman-leadership.jpg";
+import aboutUsGroupImage from "../assets/news/menstrual-health-policy-hero.jpeg";
+import aboutUsChairSpeakerImage from "../assets/news/about-us-speaker-chair.jpeg";
+import aboutUsIpicSpeakerImage from "../assets/news/about-us-speaker-ipic.jpeg";
 
 interface AboutUsProps {
   onPartnerClick: () => void;
@@ -30,8 +30,8 @@ export default function AboutUs({ onPartnerClick }: AboutUsProps) {
             <div className="col-span-8 relative">
               <div className="overflow-hidden rounded-2xl shadow-xl aspect-[4/3] border-4 border-white bg-brand-charcoal">
                 <img
-                  src={teamCollaborationImage}
-                  alt="IPIC Africa policy formulation planning"
+                  src={aboutUsGroupImage}
+                  alt="IPiC Africa team at menstrual health research dissemination forum"
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -55,9 +55,9 @@ export default function AboutUs({ onPartnerClick }: AboutUsProps) {
             <div className="col-span-5 -mt-8 relative z-10">
               <div className="overflow-hidden rounded-2xl shadow-lg aspect-square border-4 border-white transform -rotate-3 hover:rotate-0 transition-transform duration-300 bg-brand-charcoal">
                 <img
-                  src={womanLeadershipImage}
-                  alt="African professional research"
-                  className="h-full w-full object-cover object-[38%_center]"
+                  src={aboutUsIpicSpeakerImage}
+                  alt="IPiC Africa representative speaking at a research dissemination forum"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
             </div>
@@ -66,8 +66,8 @@ export default function AboutUs({ onPartnerClick }: AboutUsProps) {
             <div className="col-span-7 -mt-16 sm:-mt-24">
               <div className="overflow-hidden rounded-2xl shadow-xl aspect-[16/10] border-4 border-white bg-brand-charcoal">
                 <img
-                  src={financialStrategyImage}
-                  alt="Strategic communication seminar"
+                  src={aboutUsChairSpeakerImage}
+                  alt="Forum speaker presenting menstrual health research"
                   className="h-full w-full object-cover object-center"
                 />
               </div>

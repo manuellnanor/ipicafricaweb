@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
@@ -19,13 +19,36 @@ import BlogSection from "./components/BlogSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import VideoModal from "./components/VideoModal";
+import ArticlePage from "./components/ArticlePage";
+import { getBlogPostBySlug } from "./data/blogPosts";
+
+const getArticleSlugFromPath = () => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const match = window.location.pathname.match(/^\/news\/([^/]+)\/?$/);
+  return match ? decodeURIComponent(match[1]) : null;
+};
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [videoModalTitle, setVideoModalTitle] = useState("");
+  const [selectedArticleSlug, setSelectedArticleSlug] = useState<string | null>(getArticleSlugFromPath);
+  const selectedArticle = selectedArticleSlug ? getBlogPostBySlug(selectedArticleSlug) : undefined;
 
-  const handleNavigate = (sectionId: string) => {
+  useEffect(() => {
+    const handlePopState = () => {
+      setSelectedArticleSlug(getArticleSlugFromPath());
+      window.scrollTo({ top: 0 });
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
@@ -41,9 +64,32 @@ export default function App() {
     }
   };
 
+  const handleNavigate = (sectionId: string) => {
+    if (selectedArticleSlug) {
+      window.history.pushState({}, "", "/");
+      setSelectedArticleSlug(null);
+      window.setTimeout(() => scrollToSection(sectionId), 0);
+      return;
+    }
+
+    scrollToSection(sectionId);
+  };
+
   const triggerVideoModal = (title: string) => {
     setVideoModalTitle(title);
     setIsVideoModalOpen(true);
+  };
+
+  const handlePostClick = (slug: string) => {
+    window.history.pushState({}, "", `/news/${slug}`);
+    setSelectedArticleSlug(slug);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleArticleBack = () => {
+    window.history.pushState({}, "", "/");
+    setSelectedArticleSlug(null);
+    window.setTimeout(() => scrollToSection("blog"), 0);
   };
 
   return (
@@ -54,48 +100,57 @@ export default function App() {
         activeSection={activeSection}
         onNavigate={handleNavigate}
         onPartnerClick={() => handleNavigate("contact-us")}
+        forceSolid={Boolean(selectedArticle)}
       />
 
-      {/* Main Sections Stack */}
-      <main>
-        {/* Hero Slider */}
-        <Hero onDiscoverClick={() => handleNavigate("who-we-are")} />
-
-        {/* Feature Cards Floating Overlap */}
-        <Features />
-
-        {/* Who We Are & Experience Block */}
-        <AboutUs onPartnerClick={() => handleNavigate("contact-us")} />
-
-        {/* Stats Counter Row */}
-        <StatsCounter />
-
-        {/* Play Banner Media Section */}
-        <InteractiveBanner
-          onPlayClick={() => triggerVideoModal("IPIC Africa: Translating Research into Social Impact across Africa")}
+      {selectedArticle ? (
+        <ArticlePage
+          post={selectedArticle}
+          onBack={handleArticleBack}
+          onPostClick={handlePostClick}
         />
+      ) : (
+        /* Main Sections Stack */
+        <main>
+          {/* Hero Slider */}
+          <Hero onDiscoverClick={() => handleNavigate("who-we-are")} />
 
-        {/* Successful Camping Projects */}
-        <CampingProjects />
+          {/* Feature Cards Floating Overlap */}
+          <Features />
 
-        {/* Volunteers Team Section */}
-        <Volunteers />
+          {/* Who We Are & Experience Block */}
+          <AboutUs onPartnerClick={() => handleNavigate("contact-us")} />
 
-        {/* Brand Sponsors Bar */}
-        <Partners />
+          {/* Stats Counter Row */}
+          <StatsCounter />
 
-        {/* FAQ Section */}
-        <FAQSection />
+          {/* Play Banner Media Section */}
+          <InteractiveBanner
+            onPlayClick={() => triggerVideoModal("IPIC Africa: Translating Research into Social Impact across Africa")}
+          />
 
-        {/* Econest Upcoming Events */}
-        <EventsSection />
+          {/* Successful Camping Projects */}
+          <CampingProjects />
 
-        {/* News and Sustainability Blogs */}
-        <BlogSection />
+          {/* Volunteers Team Section */}
+          <Volunteers />
 
-        {/* Address and Direct Contact Stripe */}
-        <ContactSection />
-      </main>
+          {/* Brand Sponsors Bar */}
+          <Partners />
+
+          {/* FAQ Section */}
+          <FAQSection />
+
+          {/* Econest Upcoming Events */}
+          <EventsSection />
+
+          {/* News and Sustainability Blogs */}
+          <BlogSection onPostClick={handlePostClick} />
+
+          {/* Address and Direct Contact Stripe */}
+          <ContactSection />
+        </main>
+      )}
 
       {/* Comprehensive Footer and Copyright */}
       <Footer onNavigate={handleNavigate} />

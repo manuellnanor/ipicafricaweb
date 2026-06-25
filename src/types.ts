@@ -51,12 +51,18 @@ export interface EconestEvent {
 
 export interface BlogPost {
   id: string;
+  slug: string;
   title: string;
   dateDay: string;
   dateMonth: string;
+  dateLabel: string;
   author: string;
   category: string;
   image: string;
+  excerpt: string;
+  content: string[];
+  gallery?: string[];
+  tags?: string[];
 }
 
 export interface FAQItem {

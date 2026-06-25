@@ -7,9 +7,10 @@ interface HeaderProps {
   onPartnerClick: () => void;
   onNavigate: (sectionId: string) => void;
   activeSection: string;
+  forceSolid?: boolean;
 }
 
-export default function Header({ onPartnerClick, onNavigate, activeSection }: HeaderProps) {
+export default function Header({ onPartnerClick, onNavigate, activeSection, forceSolid = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection }: He
     <>
       <header
         className={`fixed left-0 right-0 top-0 z-40 transition-all duration-300 ${
-          isScrolled
+          isScrolled || forceSolid
             ? "bg-brand-charcoal/95 backdrop-blur-md shadow-lg border-b border-white/5 py-3"
             : "bg-transparent py-5"
         }`}
