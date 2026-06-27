@@ -34,7 +34,7 @@ export default function PublicationsInsightsPage({ onPostClick }: PublicationsIn
             <button
               type="button"
               onClick={() => onPostClick(featuredPost.slug)}
-              className="group grid overflow-hidden bg-white text-left text-brand-charcoal shadow-2xl sm:grid-cols-[220px_1fr]"
+              className="group grid overflow-hidden rounded-3xl bg-white text-left text-brand-charcoal shadow-2xl sm:grid-cols-[220px_1fr]"
             >
               <img
                 src={featuredPost.image}
@@ -75,7 +75,7 @@ export default function PublicationsInsightsPage({ onPostClick }: PublicationsIn
 
           <div className="grid gap-6 md:grid-cols-2">
             {BLOG_POSTS.map((post) => (
-              <article key={post.id} className="group overflow-hidden bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <article key={post.id} className="group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <button
                   type="button"
                   onClick={() => onPostClick(post.slug)}
@@ -118,25 +118,25 @@ export default function PublicationsInsightsPage({ onPostClick }: PublicationsIn
         </div>
 
         <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-          <div className="bg-white p-6 shadow-sm">
+          <div className="rounded-2xl bg-white p-6 shadow-sm">
             <h3 className="font-display text-lg font-extrabold text-brand-green">Search</h3>
-            <div className="mt-4 flex items-center bg-brand-cream px-4 py-3 text-sm text-gray-400">
+            <div className="mt-4 flex items-center rounded-xl bg-brand-cream px-4 py-3 text-sm text-gray-400">
               <span className="flex-1">Search publications...</span>
               <Search className="h-4 w-4 text-brand-gold" />
             </div>
           </div>
-          <div className="bg-white p-6 shadow-sm">
+          <div className="rounded-2xl bg-white p-6 shadow-sm">
             <h3 className="font-display text-lg font-extrabold text-brand-green">Categories</h3>
             <div className="mt-4 space-y-2">
               {categories.map((category) => (
-                <div key={category} className="flex items-center justify-between bg-brand-cream px-4 py-3 text-sm font-bold text-gray-500">
+                <div key={category} className="flex items-center justify-between rounded-xl bg-brand-cream px-4 py-3 text-sm font-bold text-gray-500">
                   <span>{category}</span>
                   <Tag className="h-4 w-4 text-brand-gold" />
                 </div>
               ))}
             </div>
           </div>
-          <div className="bg-brand-gold p-6 text-brand-charcoal shadow-sm">
+          <div className="rounded-2xl bg-brand-gold p-6 text-brand-charcoal shadow-sm">
             <User className="mb-4 h-7 w-7" />
             <h3 className="font-display text-lg font-extrabold">Submit a partnership brief</h3>
             <p className="mt-2 text-sm leading-6 text-brand-charcoal/75">

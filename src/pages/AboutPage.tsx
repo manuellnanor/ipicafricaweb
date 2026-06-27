@@ -46,11 +46,11 @@ export default function AboutPage({ onPartnerClick }: AboutPageProps) {
             </p>
           </div>
 
-          <div className="self-end border-l-4 border-brand-gold bg-white/10 p-6 backdrop-blur-md">
+          <div className="self-end rounded-3xl border-l-4 border-brand-gold bg-white/10 p-6 backdrop-blur-md">
             <img
               src={aboutUsIpicSpeakerImage}
               alt="IPIC Africa representative speaking"
-              className="mb-5 aspect-[4/3] w-full rounded-lg object-cover"
+              className="mb-5 aspect-[4/3] w-full rounded-2xl object-cover"
             />
             <p className="font-display text-2xl font-extrabold leading-snug">
               Evidence becomes useful when people can understand it, trust it, and act on it.
@@ -61,7 +61,7 @@ export default function AboutPage({ onPartnerClick }: AboutPageProps) {
 
       <section className="mx-auto grid max-w-7xl gap-6 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         {values.map((value) => (
-          <div key={value} className="border border-gray-100 bg-white p-6 shadow-sm">
+          <div key={value} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-light-green text-brand-green">
               <Check className="h-5 w-5" />
             </div>
@@ -79,7 +79,7 @@ export default function AboutPage({ onPartnerClick }: AboutPageProps) {
             { icon: Sparkles, title: "Mission", text: "To empower partners to communicate effectively, influence policy, and measure impact through knowledge and innovation." },
             { icon: Award, title: "Positioning", text: "A bridge between research institutions, public agencies, communities, civil society, media, and development partners." },
           ].map(({ icon: Icon, title, text }) => (
-            <article key={title} className="border-t-4 border-brand-gold bg-brand-cream p-7 shadow-sm">
+            <article key={title} className="rounded-2xl border-t-4 border-brand-gold bg-brand-cream p-7 shadow-sm">
               <Icon className="mb-5 h-8 w-8 text-brand-green" />
               <h3 className="font-display text-xl font-extrabold text-brand-charcoal">{title}</h3>
               <p className="mt-3 text-sm leading-7 text-gray-500">{text}</p>

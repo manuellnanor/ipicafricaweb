@@ -44,7 +44,7 @@ export default function ContactPage() {
             href={href}
             target={title === "Office" ? "_blank" : undefined}
             rel={title === "Office" ? "noreferrer" : undefined}
-            className="group bg-white p-6 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-gold text-brand-charcoal group-hover:bg-brand-green group-hover:text-white">
               <Icon className="h-5 w-5" />
@@ -56,7 +56,7 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-10 px-4 pb-20 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
-        <div className="bg-white p-6 shadow-md sm:p-8">
+        <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-md sm:p-8">
           {submitted ? (
             <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
               <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-brand-light-green text-brand-green">
@@ -82,21 +82,21 @@ export default function ContactPage() {
                   required
                   type="text"
                   placeholder="Full name"
-                  className="w-full border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
+                  className="w-full rounded-xl border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
                 />
                 <input
                   required
                   type="email"
                   placeholder="Email address"
-                  className="w-full border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
+                  className="w-full rounded-xl border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
                 />
               </div>
               <input
                 type="text"
                 placeholder="Organisation"
-                className="w-full border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
+                className="w-full rounded-xl border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
               />
-              <select className="w-full border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold">
+              <select className="w-full rounded-xl border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold">
                 <option>Policy Formulation & Analysis</option>
                 <option>Impact Communication & Advocacy</option>
                 <option>M&E, Strategy & Learning</option>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 required
                 rows={7}
                 placeholder="Describe your project, audience, timeline, and the type of support needed."
-                className="w-full resize-none border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
+                className="w-full resize-none rounded-xl border border-gray-150 bg-brand-cream px-4 py-3 text-sm font-semibold outline-none focus:border-brand-gold"
               />
               <button
                 type="submit"
@@ -119,7 +119,7 @@ export default function ContactPage() {
           )}
         </div>
 
-        <aside className="bg-brand-dark p-8 text-white shadow-md">
+        <aside className="rounded-3xl bg-brand-dark p-8 text-white shadow-md">
           <MapPin className="mb-5 h-8 w-8 text-brand-gold" />
           <h2 className="font-display text-2xl font-extrabold">Accra Secretariat</h2>
           <p className="mt-4 text-sm leading-8 text-white/65">

@@ -46,14 +46,14 @@ export default function ServicesPage() {
           <img
             src={strategyImage}
             alt="IPIC Africa strategic planning session"
-            className="h-full min-h-[320px] w-full rounded-lg border-4 border-brand-gold object-cover shadow-2xl"
+            className="h-full min-h-[320px] w-full rounded-3xl border-4 border-brand-gold object-cover shadow-2xl"
           />
         </div>
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 lg:grid-cols-3 lg:px-8">
         {services.map(({ icon: Icon, title, text, points }) => (
-          <article key={title} className="group bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <article key={title} className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand-light-green text-brand-green group-hover:bg-brand-gold group-hover:text-brand-charcoal">
               <Icon className="h-7 w-7" />
             </div>
@@ -76,7 +76,7 @@ export default function ServicesPage() {
           <img
             src={teamImage}
             alt="IPIC Africa team collaboration"
-            className="aspect-[4/3] w-full rounded-lg object-cover shadow-xl"
+            className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
           />
           <div>
             <div className="mb-3 flex items-center gap-2 text-brand-green">
@@ -95,7 +95,7 @@ export default function ServicesPage() {
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {["Research synthesis", "Policy packaging", "Multimedia dissemination", "Learning workshops"].map((item) => (
-                <div key={item} className="border border-gray-100 bg-brand-cream p-4 font-display text-sm font-extrabold text-brand-charcoal">
+                <div key={item} className="rounded-2xl border border-gray-100 bg-brand-cream p-4 font-display text-sm font-extrabold text-brand-charcoal">
                   {item}
                 </div>
               ))}
@@ -105,7 +105,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start justify-between gap-6 bg-brand-dark p-8 text-white sm:p-10 lg:flex-row lg:items-center">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-brand-dark p-8 text-white sm:p-10 lg:flex-row lg:items-center">
           <div>
             <Radio className="mb-4 h-8 w-8 text-brand-gold" />
             <h2 className="font-display text-2xl font-extrabold">Need a tailored policy communication brief?</h2>
