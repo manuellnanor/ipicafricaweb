@@ -55,7 +55,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-7">
+            <nav className="hidden lg:flex items-center space-x-5">
               {/* Home */}
               <button
                 onClick={() => handleLinkClick("/")}
@@ -149,6 +149,24 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
               >
                 <span>Publications & Insights</span>
                 {activeSection === "publications-insights" && (
+                  <motion.div
+                    layoutId="activeIndicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+
+              {/* Gallery */}
+              <button
+                onClick={() => handleLinkClick("/gallery")}
+                className={`font-display text-sm font-semibold tracking-wide transition-colors relative py-2 cursor-pointer ${
+                  activeSection === "gallery" ? "text-brand-gold" : "text-white/80 hover:text-white"
+                }`}
+                id="nav-gallery"
+              >
+                <span>Gallery</span>
+                {activeSection === "gallery" && (
                   <motion.div
                     layoutId="activeIndicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"
@@ -314,6 +332,16 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                     }`}
                   >
                     Publications & Insights
+                  </button>
+
+                  {/* Gallery */}
+                  <button
+                    onClick={() => handleLinkClick("/gallery")}
+                    className={`text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
+                      activeSection === "gallery" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    Gallery
                   </button>
 
                   {/* Contact Us */}

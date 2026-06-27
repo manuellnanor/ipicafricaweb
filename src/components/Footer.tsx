@@ -100,6 +100,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 { name: "Advisory Team", id: "/about-us" },
                 { name: "Our Services", id: "/services" },
                 { name: "Publications & Insights", id: "/publications-insights" },
+                { name: "Image Gallery", id: "/gallery" },
                 { name: "Contact Us", id: "/contact-us" },
               ].map((link) => (
                 <li key={link.name}>

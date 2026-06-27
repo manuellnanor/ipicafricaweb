@@ -24,6 +24,7 @@ import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
 import PublicationsInsightsPage from "./pages/PublicationsInsightsPage";
 import ContactPage from "./pages/ContactPage";
+import GalleryPage from "./pages/GalleryPage";
 import { getBlogPostBySlug } from "./data/blogPosts";
 
 const getCurrentPath = () => {
@@ -58,6 +59,10 @@ const getActiveSectionFromPath = (path: string) => {
 
   if (path === "/contact-us") {
     return "contact-us";
+  }
+
+  if (path === "/gallery") {
+    return "gallery";
   }
 
   return "home";
@@ -189,6 +194,10 @@ export default function App() {
 
     if (currentPath === "/contact-us") {
       return <ContactPage />;
+    }
+
+    if (currentPath === "/gallery") {
+      return <GalleryPage />;
     }
 
     return (
