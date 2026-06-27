@@ -43,7 +43,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div
-              onClick={() => handleLinkClick("home")}
+              onClick={() => handleLinkClick("/")}
               className="group flex cursor-pointer items-center"
               id="header-logo"
             >
@@ -58,7 +58,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
             <nav className="hidden lg:flex items-center space-x-7">
               {/* Home */}
               <button
-                onClick={() => handleLinkClick("home")}
+                onClick={() => handleLinkClick("/")}
                 className={`font-display text-sm font-semibold tracking-wide transition-colors relative py-2 cursor-pointer ${
                   activeSection === "home" ? "text-brand-gold" : "text-white/80 hover:text-white"
                 }`}
@@ -81,8 +81,9 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                 onMouseLeave={() => setIsAboutDropdownOpen(false)}
               >
                 <button
+                  onClick={() => handleLinkClick("/about-us")}
                   className={`flex items-center space-x-1 font-display text-sm font-semibold tracking-wide transition-colors cursor-pointer ${
-                    activeSection === "who-we-are" || activeSection === "team"
+                    activeSection === "about-us"
                       ? "text-brand-gold"
                       : "text-white/80 hover:text-white"
                   }`}
@@ -102,14 +103,14 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                       className="absolute left-0 mt-2 w-48 rounded-xl bg-brand-charcoal border border-white/10 shadow-xl overflow-hidden py-1 z-50"
                     >
                       <button
-                        onClick={() => handleLinkClick("who-we-are")}
+                        onClick={() => handleLinkClick("/about-us")}
                         className="w-full text-left px-4 py-2.5 font-display text-xs font-semibold text-white/80 hover:text-brand-gold hover:bg-white/5 transition-colors cursor-pointer"
                         id="submenu-who-we-are"
                       >
                         Who We Are
                       </button>
                       <button
-                        onClick={() => handleLinkClick("team")}
+                        onClick={() => handleLinkClick("/about-us")}
                         className="w-full text-left px-4 py-2.5 font-display text-xs font-semibold text-white/80 hover:text-brand-gold hover:bg-white/5 transition-colors cursor-pointer"
                         id="submenu-team"
                       >
@@ -122,7 +123,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
 
               {/* Services */}
               <button
-                onClick={() => handleLinkClick("services")}
+                onClick={() => handleLinkClick("/services")}
                 className={`font-display text-sm font-semibold tracking-wide transition-colors relative py-2 cursor-pointer ${
                   activeSection === "services" ? "text-brand-gold" : "text-white/80 hover:text-white"
                 }`}
@@ -138,16 +139,16 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                 )}
               </button>
 
-              {/* Projects and Insights */}
+              {/* Publications and Insights */}
               <button
-                onClick={() => handleLinkClick("projects-insights")}
+                onClick={() => handleLinkClick("/publications-insights")}
                 className={`font-display text-sm font-semibold tracking-wide transition-colors relative py-2 cursor-pointer ${
-                  activeSection === "projects-insights" ? "text-brand-gold" : "text-white/80 hover:text-white"
+                  activeSection === "publications-insights" ? "text-brand-gold" : "text-white/80 hover:text-white"
                 }`}
-                id="nav-projects-insights"
+                id="nav-publications-insights"
               >
-                <span>Projects & Insights</span>
-                {activeSection === "projects-insights" && (
+                <span>Publications & Insights</span>
+                {activeSection === "publications-insights" && (
                   <motion.div
                     layoutId="activeIndicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"
@@ -158,7 +159,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
 
               {/* Contact Us */}
               <button
-                onClick={() => handleLinkClick("contact-us")}
+                onClick={() => handleLinkClick("/contact-us")}
                 className={`font-display text-sm font-semibold tracking-wide transition-colors relative py-2 cursor-pointer ${
                   activeSection === "contact-us" ? "text-brand-gold" : "text-white/80 hover:text-white"
                 }`}
@@ -252,7 +253,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                 <nav className="flex flex-col space-y-3">
                   {/* Home */}
                   <button
-                    onClick={() => handleLinkClick("home")}
+                    onClick={() => handleLinkClick("/")}
                     className={`text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
                       activeSection === "home" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
                     }`}
@@ -279,13 +280,13 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                           className="pl-4 flex flex-col space-y-2 mt-1 border-l border-white/10 overflow-hidden"
                         >
                           <button
-                            onClick={() => handleLinkClick("who-we-are")}
+                            onClick={() => handleLinkClick("/about-us")}
                             className="text-left font-display text-sm py-1.5 text-white/60 hover:text-brand-gold transition-colors"
                           >
                             • Who We Are
                           </button>
                           <button
-                            onClick={() => handleLinkClick("team")}
+                            onClick={() => handleLinkClick("/about-us")}
                             className="text-left font-display text-sm py-1.5 text-white/60 hover:text-brand-gold transition-colors"
                           >
                             • Our Team
@@ -297,7 +298,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
 
                   {/* Services */}
                   <button
-                    onClick={() => handleLinkClick("services")}
+                    onClick={() => handleLinkClick("/services")}
                     className={`text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
                       activeSection === "services" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
                     }`}
@@ -305,19 +306,19 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                     Services
                   </button>
 
-                  {/* Projects and Insights */}
+                  {/* Publications and Insights */}
                   <button
-                    onClick={() => handleLinkClick("projects-insights")}
+                    onClick={() => handleLinkClick("/publications-insights")}
                     className={`text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
-                      activeSection === "projects-insights" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
+                      activeSection === "publications-insights" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
                     }`}
                   >
-                    Projects & Insights
+                    Publications & Insights
                   </button>
 
                   {/* Contact Us */}
                   <button
-                    onClick={() => handleLinkClick("contact-us")}
+                    onClick={() => handleLinkClick("/contact-us")}
                     className={`text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
                       activeSection === "contact-us" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
                     }`}

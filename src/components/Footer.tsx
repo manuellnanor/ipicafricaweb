@@ -50,7 +50,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           {/* Logo description Column */}
           <div className="lg:col-span-4">
             <button
-              onClick={() => onNavigate("home")}
+              onClick={() => onNavigate("/")}
               className="mb-6 block cursor-pointer"
               aria-label="Go to the IPIC Africa homepage"
             >
@@ -96,11 +96,11 @@ export default function Footer({ onNavigate }: FooterProps) {
             </h4>
             <ul className="space-y-3 text-sm">
               {[
-                { name: "Who We Are", id: "who-we-are" },
-                { name: "Advisory Team", id: "team" },
-                { name: "Our Services", id: "services" },
-                { name: "Missions Portfolio", id: "projects-insights" },
-                { name: "Contact Us", id: "contact-us" },
+                { name: "About Us", id: "/about-us" },
+                { name: "Advisory Team", id: "/about-us" },
+                { name: "Our Services", id: "/services" },
+                { name: "Publications & Insights", id: "/publications-insights" },
+                { name: "Contact Us", id: "/contact-us" },
               ].map((link) => (
                 <li key={link.name}>
                   <button
@@ -130,7 +130,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               ].map((serv) => (
                 <li key={serv}>
                   <button
-                    onClick={() => onNavigate("services")}
+                    onClick={() => onNavigate("/services")}
                     className="hover:text-brand-gold text-gray-400 text-left transition-colors cursor-pointer"
                   >
                     {serv}
