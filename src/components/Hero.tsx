@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import teamCollaborationImage from "../assets/hero/ipic-team-collaboration.jpg";
-import financialStrategyImage from "../assets/hero/ipic-financial-strategy.jpg";
-import womanLeadershipImage from "../assets/hero/ipic-woman-leadership.jpg";
+import projectTeamImage from "../assets/hero/rg-hi-project-team.jpeg";
+import projectPresentationImage from "../assets/hero/rg-hi-project-presentation.jpeg";
+import projectRecognitionImage from "../assets/hero/rg-hi-project-recognition.jpeg";
 
 interface HeroProps {
   onDiscoverClick: () => void;
@@ -12,19 +12,19 @@ interface HeroProps {
 const SLIDES = [
   {
     heading: "Bridging Research, Communication, and Policy in Africa",
-    bgImage: teamCollaborationImage,
+    bgImage: projectTeamImage,
     imagePosition: "center 58%",
     tagline: "We turn complex scientific research into accessible communication and actionable policy frameworks across the continent.",
   },
   {
     heading: "Empowering organizations for sustainable social impact",
-    bgImage: financialStrategyImage,
+    bgImage: projectPresentationImage,
     imagePosition: "center",
     tagline: "Supporting governments, development partners, and civil society with cutting-edge knowledge, technology, and advocacy.",
   },
   {
     heading: "Advancing democratic rights and digital inclusion",
-    bgImage: womanLeadershipImage,
+    bgImage: projectRecognitionImage,
     imagePosition: "center 45%",
     tagline: "Promoting rights-based governance, digital equity, and responsible AI deployment to foster accountable, inclusive progress.",
   },

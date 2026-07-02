@@ -1,6 +1,7 @@
 import {
   ArrowLeft,
   CalendarDays,
+  Download,
   Facebook,
   Linkedin,
   Mail,
@@ -111,6 +112,19 @@ export default function ArticlePage({ post, onBack, onPostClick }: ArticlePagePr
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+
+              {post.briefUrl && (
+                <div className="mt-10">
+                  <a
+                    href={post.briefUrl}
+                    download
+                    className="inline-flex items-center gap-2 rounded-full bg-brand-gold px-6 py-3 font-display text-xs font-extrabold uppercase tracking-wider text-brand-charcoal shadow-sm transition hover:bg-brand-green hover:text-white"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download Brief
+                  </a>
+                </div>
+              )}
 
               {post.gallery && (
                 <div className="mt-12">

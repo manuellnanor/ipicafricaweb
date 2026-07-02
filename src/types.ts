@@ -14,6 +14,7 @@ export interface CampingProject {
   category: string;
   description: string;
   image: string;
+  briefUrl?: string;
 }
 
 export interface Volunteer {
@@ -62,6 +63,7 @@ export interface BlogPost {
   excerpt: string;
   content: string[];
   gallery?: string[];
+  briefUrl?: string;
   tags?: string[];
 }
 

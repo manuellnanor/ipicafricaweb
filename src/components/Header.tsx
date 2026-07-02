@@ -14,7 +14,9 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
+  const [isMobileResourcesOpen, setIsMobileResourcesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +30,7 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
     onNavigate(id);
     setIsMobileMenuOpen(false);
     setIsAboutDropdownOpen(false);
+    setIsResourcesDropdownOpen(false);
   };
 
   return (
@@ -139,41 +142,52 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                 )}
               </button>
 
-              {/* Publications and Insights */}
-              <button
-                onClick={() => handleLinkClick("/publications-insights")}
-                className={`font-display text-sm font-semibold tracking-wide transition-colors relative py-2 cursor-pointer ${
-                  activeSection === "publications-insights" ? "text-brand-gold" : "text-white/80 hover:text-white"
-                }`}
-                id="nav-publications-insights"
+              {/* Publications and Resources Submenu */}
+              <div
+                className="relative py-2"
+                onMouseEnter={() => setIsResourcesDropdownOpen(true)}
+                onMouseLeave={() => setIsResourcesDropdownOpen(false)}
               >
-                <span>Publications & Insights</span>
-                {activeSection === "publications-insights" && (
-                  <motion.div
-                    layoutId="activeIndicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
+                <button
+                  onClick={() => handleLinkClick("/publications-insights")}
+                  className={`flex items-center space-x-1 font-display text-sm font-semibold tracking-wide transition-colors cursor-pointer ${
+                    activeSection === "publications-insights" || activeSection === "gallery"
+                      ? "text-brand-gold"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                  id="nav-publications-resources-trigger"
+                >
+                  <span>Publications & Resources</span>
+                  <ChevronDown className="h-4 w-4 transition-transform duration-200" style={{ transform: isResourcesDropdownOpen ? 'rotate(180deg)' : 'none' }} />
+                </button>
 
-              {/* Gallery */}
-              <button
-                onClick={() => handleLinkClick("/gallery")}
-                className={`font-display text-sm font-semibold tracking-wide transition-colors relative py-2 cursor-pointer ${
-                  activeSection === "gallery" ? "text-brand-gold" : "text-white/80 hover:text-white"
-                }`}
-                id="nav-gallery"
-              >
-                <span>Gallery</span>
-                {activeSection === "gallery" && (
-                  <motion.div
-                    layoutId="activeIndicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
+                <AnimatePresence>
+                  {isResourcesDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute left-0 mt-2 w-56 rounded-xl bg-brand-charcoal border border-white/10 shadow-xl overflow-hidden py-1 z-50"
+                    >
+                      <button
+                        onClick={() => handleLinkClick("/publications-insights")}
+                        className="w-full text-left px-4 py-2.5 font-display text-xs font-semibold text-white/80 hover:text-brand-gold hover:bg-white/5 transition-colors cursor-pointer"
+                        id="submenu-publications"
+                      >
+                        Publications
+                      </button>
+                      <button
+                        onClick={() => handleLinkClick("/gallery")}
+                        className="w-full text-left px-4 py-2.5 font-display text-xs font-semibold text-white/80 hover:text-brand-gold hover:bg-white/5 transition-colors cursor-pointer"
+                        id="submenu-gallery"
+                      >
+                        Gallery
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Contact Us */}
               <button
@@ -324,25 +338,44 @@ export default function Header({ onPartnerClick, onNavigate, activeSection, forc
                     Services
                   </button>
 
-                  {/* Publications and Insights */}
-                  <button
-                    onClick={() => handleLinkClick("/publications-insights")}
-                    className={`text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
-                      activeSection === "publications-insights" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
-                    }`}
-                  >
-                    Publications & Insights
-                  </button>
+                  {/* Publications & Resources */}
+                  <div className="flex flex-col">
+                    <button
+                      onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
+                      className={`flex items-center justify-between text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
+                        activeSection === "publications-insights" || activeSection === "gallery"
+                          ? "text-brand-gold"
+                          : "text-white/70 hover:text-white"
+                      }`}
+                    >
+                      <span>Publications & Resources</span>
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileResourcesOpen ? 'rotate-180' : ''}`} />
+                    </button>
 
-                  {/* Gallery */}
-                  <button
-                    onClick={() => handleLinkClick("/gallery")}
-                    className={`text-left font-display text-base font-semibold py-2 transition-colors cursor-pointer ${
-                      activeSection === "gallery" ? "text-brand-gold pl-2 border-l-2 border-brand-gold" : "text-white/70 hover:text-white"
-                    }`}
-                  >
-                    Gallery
-                  </button>
+                    <AnimatePresence>
+                      {isMobileResourcesOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="pl-4 flex flex-col space-y-2 mt-1 border-l border-white/10 overflow-hidden"
+                        >
+                          <button
+                            onClick={() => handleLinkClick("/publications-insights")}
+                            className="text-left font-display text-sm py-1.5 text-white/60 hover:text-brand-gold transition-colors"
+                          >
+                            Publications
+                          </button>
+                          <button
+                            onClick={() => handleLinkClick("/gallery")}
+                            className="text-left font-display text-sm py-1.5 text-white/60 hover:text-brand-gold transition-colors"
+                          >
+                            Gallery
+                          </button>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
 
                   {/* Contact Us */}
                   <button

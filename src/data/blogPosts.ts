@@ -20,6 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "IPiC Africa supported knowledge translation for menstrual health research examining links between menstrual management challenges and adolescent girls' mental health in Ghana.",
     gallery: [menstrualHealthTeamImage, menstrualHealthParticipantsImage],
+    briefUrl: "/downloads/menstrual-health-policy-brief.pdf",
     tags: ["Menstrual Health", "Mental Health", "Knowledge Translation"],
     content: [
       "A growing body of evidence linking menstrual health challenges to poor mental health outcomes among adolescent girls is prompting renewed calls for policy action in Ghana, with knowledge translation experts emphasizing the need to move research findings beyond academic circles and into practical decision-making.",

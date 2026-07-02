@@ -76,8 +76,20 @@ const GALLERY_IMAGES = [
   },
 ];
 
+const PHOTO_ALBUMS = [
+  {
+    id: "uhas-rghi-dissemination-forum",
+    eventName: "UHAS-RGHI Project Dissemination Forum",
+    dateLabel: "June 2026",
+    location: "UHAS Hohoe Campus",
+    coverImage: participantsGroupPhotoImage,
+    images: GALLERY_IMAGES,
+  },
+];
+
 export default function GalleryPage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [activeView, setActiveView] = useState<"photos" | "albums">("photos");
   const selectedImage = selectedIndex === null ? null : GALLERY_IMAGES[selectedIndex];
 
   const showPrevious = () => {
@@ -113,11 +125,10 @@ export default function GalleryPage() {
               </span>
             </div>
             <h1 className="font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Moments from research translation and policy engagement.
+              Image gallery and photo albums.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/75">
-              A visual record from IPIC Africa's support for the UHAS-RGHI dissemination forum,
-              including project teams, participants, presentations, and stakeholder engagement.
+              Browse all photos from IPIC Africa events, or open a photo album grouped by event name.
             </p>
           </div>
         </div>
@@ -129,50 +140,107 @@ export default function GalleryPage() {
             <div className="mb-3 flex items-center gap-2 text-brand-green">
               <Camera className="h-5 w-5 text-brand-gold" />
               <span className="font-display text-xs font-extrabold uppercase tracking-widest">
-                Event Collection
+                {activeView === "photos" ? "All Photos" : "Photo Albums"}
               </span>
             </div>
             <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-              UHAS-RGHI Project Dissemination Forum
+              {activeView === "photos" ? "All Photos" : "Photo Albums"}
             </h2>
           </div>
-          <div className="rounded-2xl bg-white px-5 py-4 text-sm font-bold text-brand-green shadow-sm">
-            {GALLERY_IMAGES.length} photos
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setActiveView("photos")}
+              className={`rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-wider transition ${
+                activeView === "photos"
+                  ? "bg-brand-green text-white shadow-sm"
+                  : "bg-white text-brand-green shadow-sm hover:bg-brand-light-green"
+              }`}
+            >
+              All Photos
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveView("albums")}
+              className={`rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-wider transition ${
+                activeView === "albums"
+                  ? "bg-brand-green text-white shadow-sm"
+                  : "bg-white text-brand-green shadow-sm hover:bg-brand-light-green"
+              }`}
+            >
+              Photo Albums
+            </button>
           </div>
         </div>
 
-        <div className="grid auto-rows-[220px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {GALLERY_IMAGES.map((image, index) => (
-            <button
-              key={image.title}
-              type="button"
-              onClick={() => setSelectedIndex(index)}
-              className={`group relative overflow-hidden rounded-3xl border border-gray-100 bg-brand-charcoal text-left shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                image.featured ? "sm:col-span-2 sm:row-span-2" : ""
-              }`}
-              aria-label={`Open ${image.title}`}
-            >
-              <img
-                src={image.src}
-                alt={image.title}
-                className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white">
-                <span className="rounded-full bg-brand-gold px-3 py-1 text-[10px] font-black uppercase tracking-wider text-brand-charcoal">
-                  {image.category}
-                </span>
-                <h3 className="mt-3 font-display text-lg font-extrabold leading-tight">
-                  {image.title}
-                </h3>
-                <p className="mt-2 flex items-center gap-1 text-xs font-semibold text-white/70">
-                  <MapPin className="h-3.5 w-3.5 text-brand-gold" />
-                  {image.location}
-                </p>
-              </div>
-            </button>
-          ))}
-        </div>
+        {activeView === "photos" ? (
+          <div className="grid auto-rows-[220px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {GALLERY_IMAGES.map((image, index) => (
+              <button
+                key={image.title}
+                type="button"
+                onClick={() => setSelectedIndex(index)}
+                className={`group relative overflow-hidden rounded-3xl border border-gray-100 bg-brand-charcoal text-left shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                  image.featured ? "sm:col-span-2 sm:row-span-2" : ""
+                }`}
+                aria-label={`Open ${image.title}`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white">
+                  <span className="rounded-full bg-brand-gold px-3 py-1 text-[10px] font-black uppercase tracking-wider text-brand-charcoal">
+                    {image.category}
+                  </span>
+                  <p className="mt-3 flex items-center gap-1 text-xs font-semibold text-white/70">
+                    <MapPin className="h-3.5 w-3.5 text-brand-gold" />
+                    {image.location}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {PHOTO_ALBUMS.map((album) => (
+              <button
+                key={album.id}
+                type="button"
+                onClick={() => setActiveView("photos")}
+                className="group overflow-hidden rounded-3xl border border-gray-100 bg-white text-left shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-brand-charcoal">
+                  <img
+                    src={album.coverImage}
+                    alt={album.eventName}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute left-4 top-4 rounded-full bg-brand-gold px-3 py-1 text-[10px] font-black uppercase tracking-wider text-brand-charcoal">
+                    {album.images.length} photos
+                  </div>
+                </div>
+                <div className="p-6">
+                  <span className="font-display text-xs font-extrabold uppercase tracking-widest text-brand-green">
+                    Photo Album
+                  </span>
+                  <h3 className="mt-2 font-display text-xl font-extrabold leading-tight text-brand-charcoal">
+                    {album.eventName}
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-gray-500">
+                    <span>{album.dateLabel}</span>
+                    <span className="flex items-center gap-1">
+                      <MapPin className="h-4 w-4 text-brand-gold" />
+                      {album.location}
+                    </span>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
       </section>
 
       {selectedImage && (
@@ -203,14 +271,9 @@ export default function GalleryPage() {
                 className="max-h-[76vh] w-full object-contain bg-brand-dark"
               />
               <div className="flex flex-col justify-between gap-3 p-5 sm:flex-row sm:items-center">
-                <div>
-                  <span className="font-display text-xs font-extrabold uppercase tracking-widest text-brand-green">
-                    {selectedImage.category}
-                  </span>
-                  <h2 className="mt-1 font-display text-xl font-extrabold text-brand-charcoal">
-                    {selectedImage.title}
-                  </h2>
-                </div>
+                <span className="font-display text-xs font-extrabold uppercase tracking-widest text-brand-green">
+                  {selectedImage.category}
+                </span>
                 <p className="flex items-center gap-1 text-sm font-semibold text-gray-500">
                   <MapPin className="h-4 w-4 text-brand-gold" />
                   {selectedImage.location}

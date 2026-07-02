@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { FolderGit2, ArrowRight, Star } from "lucide-react";
+import { FolderGit2, ArrowRight, Download, Star } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { CampingProject } from "../types";
 import teamCollaborationImage from "../assets/hero/ipic-team-collaboration.jpg";
 import financialStrategyImage from "../assets/hero/ipic-financial-strategy.jpg";
 import womanLeadershipImage from "../assets/hero/ipic-woman-leadership.jpg";
+import menstrualHealthPolicyBriefImage from "../assets/projects/menstrual-health-policy-brief.png";
 
 const PROJECTS: CampingProject[] = [
   {
     id: "proj-1",
-    title: "West African Open-Data Initiative",
-    category: "Communication",
-    description: "Designing user-friendly civic portals and data graphics to translate complex statistics for citizen monitoring groups.",
-    image: teamCollaborationImage,
+    title: "Menstrual Health Is Mental Health: Evidence and Policy Actions to Support Adolescent Girls in Ghana",
+    category: "Research",
+    description: "A policy brief translating evidence on menstrual hygiene management and psychological wellbeing into practical recommendations for schools and policymakers.",
+    image: menstrualHealthPolicyBriefImage,
+    briefUrl: "/downloads/menstrual-health-policy-brief.pdf",
   },
   {
     id: "proj-2",
@@ -106,20 +108,35 @@ export default function CampingProjects() {
                 </div>
 
                 <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col justify-end p-6 text-white">
-                  <h3 className="font-display text-lg font-bold leading-snug transition-colors group-hover:text-brand-gold">
+                  <h3 className="line-clamp-4 font-display text-base font-bold leading-snug transition-colors group-hover:text-brand-gold">
                     {project.title}
                   </h3>
                   <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-gray-300">
                     {project.description}
                   </p>
-                  <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold">
-                      View Mission Brief
-                    </span>
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-green">
-                      <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </div>
+                  {project.briefUrl ? (
+                    <a
+                      href={project.briefUrl}
+                      download
+                      className="mt-4 flex items-center justify-between border-t border-white/10 pt-4 text-brand-gold transition-colors hover:text-white"
+                    >
+                      <span className="text-[10px] font-bold uppercase tracking-widest">
+                        Download Brief
+                      </span>
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-green text-white transition-transform group-hover:translate-y-[-2px]">
+                        <Download className="h-4 w-4" />
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold">
+                        View Mission Brief
+                      </span>
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-green">
+                        <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                  )}
                 </div>
               </motion.article>
             ))}

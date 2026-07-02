@@ -18,14 +18,14 @@ export default function PublicationsInsightsPage({ onPostClick }: PublicationsIn
             <div className="mb-4 flex items-center gap-2 text-brand-gold">
               <Newspaper className="h-5 w-5" />
               <span className="font-display text-xs font-extrabold uppercase tracking-widest">
-                Publications & Insights
+                Publications & Resources
               </span>
             </div>
             <h1 className="font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Research, policy notes, and field intelligence.
+              Publications, policy notes, and field resources.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/70">
-              Read IPIC Africa updates on policy translation, advocacy campaigns, research dissemination,
+              Read IPIC Africa publications on policy translation, advocacy campaigns, research dissemination,
               monitoring and evaluation, and evidence-informed development practice.
             </p>
           </div>

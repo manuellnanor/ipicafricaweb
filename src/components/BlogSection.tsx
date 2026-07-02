@@ -15,11 +15,11 @@ export default function BlogSection({ onPostClick }: BlogSectionProps) {
           <div className="mb-3 flex items-center space-x-2 text-brand-green">
             <Newspaper className="h-5 w-5 text-brand-gold" />
             <span className="font-display text-xs font-extrabold uppercase tracking-widest">
-              Insights & Releases
+              Publications & Resources
             </span>
           </div>
           <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-brand-charcoal sm:text-4xl md:text-5xl">
-            Latest Publications & Insights
+            Latest Publications & Resources
           </h2>
         </div>
         <p className="mt-4 max-w-xs text-sm text-gray-500 md:mt-0">
