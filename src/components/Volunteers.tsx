@@ -2,38 +2,36 @@ import { useState, FormEvent, MouseEvent } from "react";
 import { UserPlus, Share2, Facebook, Twitter, Instagram, Linkedin, Heart, HelpCircle, X, Check, HeartHandshake } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Volunteer } from "../types";
-import amaBoatengImage from "../assets/team/ama-boateng.jpg";
-import yaoMensahImage from "../assets/team/yao-mensah.png";
-import ebenezerKwabenaImage from "../assets/team/ebenezer-kwabena.jpg";
-import rosemaryAppiahImage from "../assets/team/rosemary-appiah.jpg";
+import femalePlaceholderImage from "../assets/team/female-placeholder.png";
+import malePlaceholderImage from "../assets/team/male-placeholder.jpg";
 
 const VOLUNTEERS: Volunteer[] = [
   {
     id: "vol-1",
     name: "Prof. Ama Boateng",
     role: "Director of Policy & Research",
-    image: amaBoatengImage,
+    image: femalePlaceholderImage,
     socials: { facebook: "#", twitter: "#", instagram: "#", linkedin: "#" },
   },
   {
     id: "vol-2",
     name: "Dr. Yao Mensah",
     role: "M&E and Learning Specialist",
-    image: yaoMensahImage,
+    image: malePlaceholderImage,
     socials: { facebook: "#", twitter: "#", instagram: "#" },
   },
   {
     id: "vol-3",
     name: "Ebenezer Kwabena",
     role: "Digital Advocacy Lead",
-    image: ebenezerKwabenaImage,
+    image: malePlaceholderImage,
     socials: { facebook: "#", instagram: "#", linkedin: "#" },
   },
   {
     id: "vol-4",
     name: "Rosemary Appiah",
     role: "Governance & Operations",
-    image: rosemaryAppiahImage,
+    image: femalePlaceholderImage,
     socials: { facebook: "#", twitter: "#", linkedin: "#" },
   },
 ];
