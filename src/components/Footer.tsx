@@ -67,7 +67,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
             <div className="mt-4 text-xs font-semibold">
               <span className="text-brand-gold">Accra Secretariat Office Available:</span>
-              <span className="block text-gray-400 mt-1">Mon-Sat: 08:30am to 05:00pm</span>
+              <span className="block text-gray-400 mt-1">Mon-Fri: 08:30am to 05:00pm</span>
             </div>
 
             {/* Social Icons row */}

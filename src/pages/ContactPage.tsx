@@ -11,8 +11,8 @@ export default function ContactPage() {
 
   const contactCards = [
     { icon: Mail, title: "Email", value: "info@ipicafrica.org", href: "mailto:info@ipicafrica.org" },
-    { icon: PhoneCall, title: "Phone", value: "+233 302 123 456", href: "tel:+233302123456" },
-    { icon: MapPin, title: "Office", value: "Accra High Street, Accra, Ghana", href: "https://maps.google.com/?q=Accra+Ghana" },
+    { icon: PhoneCall, title: "Phone", value: "0501481260", href: "tel:0501481260" },
+    { icon: MapPin, title: "Office", value: "ED 535 Planets Street, GK-0848-0945, Adentan Municipality", href: "https://maps.google.com/?q=ED+535+Planets+Street+GK-0848-0945+Adentan+Municipality" },
   ];
 
   return (
@@ -131,7 +131,7 @@ export default function ContactPage() {
               <span className="block font-display text-xs font-extrabold uppercase tracking-widest text-brand-gold">
                 Availability
               </span>
-              Monday to Saturday, 08:30am to 05:00pm
+              Monday to Friday, 08:30am to 05:00pm
             </p>
             <p>
               <span className="block font-display text-xs font-extrabold uppercase tracking-widest text-brand-gold">

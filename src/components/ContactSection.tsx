@@ -10,16 +10,16 @@ export default function ContactSection() {
       href: "mailto:info@ipicafrica.org",
     },
     {
-      title: "+233 302 123 456",
+      title: "0501481260",
       subtitle: "Any Time Call Us",
       icon: PhoneCall,
-      href: "tel:+233302123456",
+      href: "tel:0501481260",
     },
     {
-      title: "Accra High Street, Accra, Ghana",
+      title: "ED 535 Planets Street, GK-0848-0945, Adentan Municipality",
       subtitle: "Our Address",
       icon: MapPin,
-      href: "https://maps.google.com/?q=Accra+Ghana",
+      href: "https://maps.google.com/?q=ED+535+Planets+Street+GK-0848-0945+Adentan+Municipality",
     },
   ];
 
