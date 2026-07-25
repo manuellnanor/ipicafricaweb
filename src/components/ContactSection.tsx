@@ -10,7 +10,7 @@ export default function ContactSection() {
       href: "mailto:info@ipicafrica.org",
     },
     {
-      title: "+233 50 148 1260",
+      title: "+233 50 148 1260 / +233 54 537 2667",
       subtitle: "Call Us",
       icon: PhoneCall,
       href: "tel:+233501481260",

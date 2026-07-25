@@ -11,7 +11,7 @@ export default function ContactPage() {
 
   const contactCards = [
     { icon: Mail, title: "Email", value: "info@ipicafrica.org", href: "mailto:info@ipicafrica.org" },
-    { icon: PhoneCall, title: "Phone", value: "+233 50 148 1260", href: "tel:+233501481260" },
+    { icon: PhoneCall, title: "Phone", value: "+233 50 148 1260 / +233 54 537 2667", href: "tel:+233501481260" },
     { icon: MapPin, title: "Office", value: "Adentan Municipality", href: "https://maps.google.com/?q=Adentan+Municipality,+Ghana" },
   ];
 
