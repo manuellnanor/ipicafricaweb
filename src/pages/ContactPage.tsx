@@ -11,8 +11,8 @@ export default function ContactPage() {
 
   const contactCards = [
     { icon: Mail, title: "Email", value: "info@ipicafrica.org", href: "mailto:info@ipicafrica.org" },
-    { icon: PhoneCall, title: "Phone", value: "0501481260", href: "tel:0501481260" },
-    { icon: MapPin, title: "Office", value: "ED 535 Planets Street, GK-0848-0945, Adentan Municipality", href: "https://maps.google.com/?q=ED+535+Planets+Street+GK-0848-0945+Adentan+Municipality" },
+    { icon: PhoneCall, title: "Phone", value: "+233 50 148 1260", href: "tel:+233501481260" },
+    { icon: MapPin, title: "Office", value: "Adentan Municipality", href: "https://maps.google.com/?q=Adentan+Municipality,+Ghana" },
   ];
 
   return (
@@ -37,20 +37,22 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-4 px-4 py-10 sm:grid-cols-3 sm:px-6 lg:gap-6 lg:px-8">
         {contactCards.map(({ icon: Icon, title, value, href }) => (
           <a
             key={title}
             href={href}
             target={title === "Office" ? "_blank" : undefined}
             rel={title === "Office" ? "noreferrer" : undefined}
-            className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group flex min-w-0 items-center gap-4 rounded-2xl border border-brand-green/10 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-gold/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold sm:block sm:p-6"
           >
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-gold text-brand-charcoal group-hover:bg-brand-green group-hover:text-white">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-light-green text-brand-green transition-colors group-hover:bg-brand-gold group-hover:text-brand-charcoal sm:mb-5">
               <Icon className="h-5 w-5" />
             </div>
-            <span className="font-display text-xs font-extrabold uppercase tracking-widest text-brand-green">{title}</span>
-            <p className="mt-2 text-sm font-bold leading-6 text-brand-charcoal">{value}</p>
+            <div className="min-w-0">
+              <span className="font-display text-xs font-extrabold uppercase tracking-widest text-brand-green">{title}</span>
+              <p className="mt-1 break-words text-sm font-bold leading-6 text-brand-charcoal sm:mt-2">{value}</p>
+            </div>
           </a>
         ))}
       </section>

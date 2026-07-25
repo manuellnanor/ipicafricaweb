@@ -1,4 +1,4 @@
-import { Award, Check, Globe, HeartHandshake, Sparkles, Users2 } from "lucide-react";
+import { Award, Check, Globe, HeartHandshake, Sparkles } from "lucide-react";
 import AboutUs from "../components/AboutUs";
 import Volunteers from "../components/Volunteers";
 import aboutUsGroupImage from "../assets/news/menstrual-health-policy-hero.jpeg";
@@ -88,14 +88,6 @@ export default function AboutPage({ onPartnerClick }: AboutPageProps) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2 text-brand-green">
-          <Users2 className="h-5 w-5 text-brand-gold" />
-          <span className="font-display text-xs font-extrabold uppercase tracking-widest">
-            Advisory Team
-          </span>
-        </div>
-      </div>
       <Volunteers />
     </main>
   );

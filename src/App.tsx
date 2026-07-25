@@ -12,9 +12,7 @@ import StatsCounter from "./components/StatsCounter";
 import InteractiveBanner from "./components/InteractiveBanner";
 import CampingProjects from "./components/CampingProjects";
 import Volunteers from "./components/Volunteers";
-import Partners from "./components/Partners";
 import FAQSection from "./components/FAQSection";
-import EventsSection from "./components/EventsSection";
 import BlogSection from "./components/BlogSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
@@ -225,14 +223,8 @@ export default function App() {
         {/* Volunteers Team Section */}
         <Volunteers />
 
-        {/* Brand Sponsors Bar */}
-        <Partners />
-
         {/* FAQ Section */}
         <FAQSection />
-
-        {/* Econest Upcoming Events */}
-        <EventsSection />
 
         {/* News and Sustainability Blogs */}
         <BlogSection onPostClick={handlePostClick} />

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BarChart3, Lightbulb, ThumbsUp, Users } from "lucide-react";
+import { BarChart3, Lightbulb, ThumbsUp } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function StatsCounter() {
@@ -11,7 +11,7 @@ export default function StatsCounter() {
       icon: BarChart3,
     },
     {
-      target: 140,
+      target: 20,
       suffix: "+",
       label: "Policy Briefs Published",
       icon: Lightbulb,
@@ -22,12 +22,6 @@ export default function StatsCounter() {
       label: "Citizens Reached",
       icon: ThumbsUp,
     },
-    {
-      target: 45,
-      suffix: "+",
-      label: "African Partnerships",
-      icon: Users,
-    },
   ];
 
   return (
@@ -36,7 +30,7 @@ export default function StatsCounter() {
       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#eeb030_1px,transparent_1px)] [background-size:16px_16px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 gap-y-12 gap-x-6 md:grid-cols-4 text-center">
+        <div className="grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-3 text-center">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
