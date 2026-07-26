@@ -2,9 +2,9 @@ import { UserRound } from "lucide-react";
 import { motion } from "motion/react";
 import type { CSSProperties } from "react";
 import dkAmpofoAdjeiImage from "../assets/team/dk-ampofo-adjei.jpeg";
-import paulKofiAgbadiImage from "../assets/team/paul-kofi-agbadi.png";
-import deborahBoaduImage from "../assets/team/deborah-boadu.png";
-import evelynAcquahImage from "../assets/team/evelyn-acquah.png";
+import paulKofiAgbadiImage from "../assets/team/paul-kofi-agbadi-grey.png";
+import deborahBoaduImage from "../assets/team/deborah-boadu-grey.png";
+import evelynAcquahImage from "../assets/team/evelyn-acquah-grey.png";
 
 const TEAM = [
   {
