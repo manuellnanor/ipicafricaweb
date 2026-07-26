@@ -1,13 +1,14 @@
 import { UserRound } from "lucide-react";
 import { motion } from "motion/react";
-import femalePlaceholderImage from "../assets/team/female-placeholder.png";
-import malePlaceholderImage from "../assets/team/male-placeholder.jpg";
+import paulKofiAgbadiImage from "../assets/team/paul-kofi-agbadi.png";
+import deborahBoaduImage from "../assets/team/deborah-boadu.png";
+import evelynAcquahImage from "../assets/team/evelyn-acquah.png";
 
 const TEAM = [
-  { name: "D.K. Ampofo Adjei, PhD, PMP®", role: "Chief Advisor", image: malePlaceholderImage },
-  { name: "Evelyn Acquah, PhD", role: "Policy and Research", image: femalePlaceholderImage },
-  { name: "Marian Angela Kyei, Esq.", role: "Legal and Digital Advocacy", image: femalePlaceholderImage },
-  { name: "Deborah Boadu, MSc", role: "Governance and Operations", image: femalePlaceholderImage },
+  { name: "D.K. Ampofo Adjei, PhD, PMP®", role: "Chief Advisor" },
+  { name: "Evelyn Acquah, PhD", role: "Policy, Research, and Programmes", image: evelynAcquahImage },
+  { name: "Paul Kofi Agbadi", role: "Legal and Digital Advocacy", image: paulKofiAgbadiImage },
+  { name: "Deborah Boadu, MSc", role: "Governance and Operations", image: deborahBoaduImage },
 ];
 
 export default function Volunteers() {
@@ -36,12 +37,19 @@ export default function Volunteers() {
             transition={{ duration: 0.4, delay: index * 0.06 }}
             className="overflow-hidden rounded-3xl border border-brand-green/10 bg-white shadow-sm"
           >
-            <div className="relative aspect-[4/3] overflow-hidden bg-brand-light-green sm:aspect-[5/4]">
-              <img src={member.image} alt="" aria-hidden="true" className="h-full w-full object-cover object-top opacity-80 grayscale" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/20 to-transparent" />
-              <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-green backdrop-blur-sm">
-                Photo coming soon
-              </span>
+            <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-white sm:aspect-[5/4]">
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={`Portrait of ${member.name}`}
+                  className="h-full w-full object-cover object-top"
+                />
+              ) : (
+                <div className="flex flex-col items-center gap-3 text-brand-green/55">
+                  <UserRound className="h-16 w-16 stroke-[1.25]" aria-hidden="true" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider">Photo coming soon</span>
+                </div>
+              )}
             </div>
             <div className="p-5 sm:p-6">
               <h3 className="font-display text-lg font-extrabold leading-snug text-brand-charcoal">{member.name}</h3>
