@@ -11,10 +11,29 @@ const TEAM = [
     role: "Chief Advisor",
     image: dkAmpofoAdjeiImage,
     imagePosition: "50% 30%",
+    imageTransform: "scale(1)",
   },
-  { name: "Evelyn Acquah, PhD", role: "Policy, Research, and Programmes", image: evelynAcquahImage },
-  { name: "Paul Kofi Agbadi", role: "Digital Innovation & AI", image: paulKofiAgbadiImage },
-  { name: "Deborah Boadu, MSc", role: "Governance and Operations", image: deborahBoaduImage },
+  {
+    name: "Evelyn Acquah, PhD",
+    role: "Policy, Research, and Programmes",
+    image: evelynAcquahImage,
+    imagePosition: "50% 12%",
+    imageTransform: "translateY(10%) scale(1.38)",
+  },
+  {
+    name: "Paul Kofi Agbadi",
+    role: "Digital Innovation & AI",
+    image: paulKofiAgbadiImage,
+    imagePosition: "50% 10%",
+    imageTransform: "translateY(14%) scale(1.4)",
+  },
+  {
+    name: "Deborah Boadu, MSc",
+    role: "Governance and Operations",
+    image: deborahBoaduImage,
+    imagePosition: "50% 10%",
+    imageTransform: "translateY(11%) scale(1.4)",
+  },
 ];
 
 export default function Volunteers() {
@@ -41,14 +60,14 @@ export default function Volunteers() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: index * 0.06 }}
-            className="group relative min-h-[390px] overflow-hidden rounded-2xl bg-brand-light-green shadow-sm sm:min-h-[430px] lg:min-h-[344px]"
+            className="group relative min-h-[390px] overflow-hidden rounded-2xl bg-[linear-gradient(90deg,#fbfbfb_0%,#f3f3f3_55%,#ededed_100%)] shadow-sm sm:min-h-[430px] lg:min-h-[344px]"
           >
-            <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-brand-light-green">
+            <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-[linear-gradient(90deg,#fbfbfb_0%,#f3f3f3_55%,#ededed_100%)]">
               <img
                 src={member.image}
                 alt={`Portrait of ${member.name}`}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-                style={{ objectPosition: member.imagePosition ?? "50% 18%" }}
+                className="h-full w-full object-cover"
+                style={{ objectPosition: member.imagePosition, transform: member.imageTransform }}
               />
             </div>
             <div className="absolute inset-x-3 bottom-3 rounded-xl border border-white/75 bg-white/95 px-4 py-4 shadow-[0_8px_28px_rgba(15,29,25,0.12)] backdrop-blur-sm sm:inset-x-4 sm:bottom-4">
