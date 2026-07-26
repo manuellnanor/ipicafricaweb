@@ -41,7 +41,7 @@ export default function Volunteers() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: index * 0.06 }}
-            className="group relative min-h-[390px] overflow-hidden rounded-2xl bg-brand-light-green shadow-sm sm:min-h-[430px]"
+            className="group relative min-h-[390px] overflow-hidden rounded-2xl bg-brand-light-green shadow-sm sm:min-h-[430px] lg:min-h-[344px]"
           >
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-brand-light-green">
               <img
