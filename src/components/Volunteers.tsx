@@ -1,5 +1,6 @@
 import { UserRound } from "lucide-react";
 import { motion } from "motion/react";
+import type { CSSProperties } from "react";
 import dkAmpofoAdjeiImage from "../assets/team/dk-ampofo-adjei.jpeg";
 import paulKofiAgbadiImage from "../assets/team/paul-kofi-agbadi.png";
 import deborahBoaduImage from "../assets/team/deborah-boadu.png";
@@ -26,6 +27,7 @@ const TEAM = [
     image: paulKofiAgbadiImage,
     imagePosition: "50% 10%",
     imageTransform: "translateY(14%) scale(1.4)",
+    desktopImageTransform: "translateY(18%) scale(1.4)",
   },
   {
     name: "Deborah Boadu, MSc",
@@ -33,6 +35,7 @@ const TEAM = [
     image: deborahBoaduImage,
     imagePosition: "50% 10%",
     imageTransform: "translateY(11%) scale(1.4)",
+    desktopImageTransform: "translateY(7%) scale(1.4)",
   },
 ];
 
@@ -66,8 +69,12 @@ export default function Volunteers() {
               <img
                 src={member.image}
                 alt={`Portrait of ${member.name}`}
-                className="h-full w-full object-cover"
-                style={{ objectPosition: member.imagePosition, transform: member.imageTransform }}
+                className="team-portrait h-full w-full object-cover"
+                style={{
+                  objectPosition: member.imagePosition,
+                  "--portrait-transform": member.imageTransform,
+                  "--portrait-transform-desktop": member.desktopImageTransform ?? member.imageTransform,
+                } as CSSProperties}
               />
             </div>
             <div className="absolute inset-x-3 bottom-3 rounded-xl border border-white/75 bg-white/95 px-4 py-4 shadow-[0_8px_28px_rgba(15,29,25,0.12)] backdrop-blur-sm sm:inset-x-4 sm:bottom-4">

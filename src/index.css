@@ -39,3 +39,13 @@ html {
 .text-stroke-sm {
   -webkit-text-stroke: 1px currentColor;
 }
+
+.team-portrait {
+  transform: var(--portrait-transform);
+}
+
+@media (min-width: 1024px) {
+  .team-portrait {
+    transform: var(--portrait-transform-desktop);
+  }
+}
