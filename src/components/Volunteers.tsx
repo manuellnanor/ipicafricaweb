@@ -7,7 +7,7 @@ import evelynAcquahImage from "../assets/team/evelyn-acquah.png";
 const TEAM = [
   { name: "D.K. Ampofo Adjei, PhD, PMP®", role: "Chief Advisor" },
   { name: "Evelyn Acquah, PhD", role: "Policy, Research, and Programmes", image: evelynAcquahImage },
-  { name: "Paul Kofi Agbadi", role: "Legal and Digital Advocacy", image: paulKofiAgbadiImage },
+  { name: "Paul Kofi Agbadi", role: "Digital Innovation & AI", image: paulKofiAgbadiImage },
   { name: "Deborah Boadu, MSc", role: "Governance and Operations", image: deborahBoaduImage },
 ];
 
