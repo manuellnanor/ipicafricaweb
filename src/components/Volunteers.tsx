@@ -5,6 +5,7 @@ import dkAmpofoAdjeiImage from "../assets/team/dk-ampofo-adjei.jpeg";
 import paulKofiAgbadiImage from "../assets/team/paul-kofi-agbadi-grey.png";
 import deborahBoaduImage from "../assets/team/deborah-boadu-grey.png";
 import evelynAcquahImage from "../assets/team/evelyn-acquah-grey.png";
+import paulAmankwaaImage from "../assets/team/paul-amankwaa.jpeg";
 
 const TEAM = [
   {
@@ -37,6 +38,13 @@ const TEAM = [
     imageTransform: "translateY(11%) scale(1.4)",
     desktopImageTransform: "translateY(7%) scale(1.4)",
   },
+  {
+    name: "Paul Amankwaa",
+    role: "Multimedia & Visual Communication",
+    image: paulAmankwaaImage,
+    imagePosition: "50% 28%",
+    imageTransform: "scale(1)",
+  },
 ];
 
 export default function Volunteers() {
@@ -55,7 +63,7 @@ export default function Volunteers() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
         {TEAM.map((member, index) => (
           <motion.article
             key={member.name}
